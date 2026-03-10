@@ -1,1 +1,174 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>First Job Toolkit</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f5f5ff;
+margin:0;
+}
+
+header{
+background:#c7d2fe;
+padding:30px;
+text-align:center;
+}
+
+section{
+padding:30px;
+max-width:900px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:20px;
+margin-top:20px;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+button{
+background:#a5f3fc;
+border:none;
+padding:10px;
+border-radius:6px;
+cursor:pointer;
+}
+
+textarea,input{
+width:100%;
+padding:8px;
+margin-top:8px;
+}
+
+.modal{
+display:none;
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.5);
+}
+
+.modal-box{
+background:white;
+padding:20px;
+width:60%;
+margin:10% auto;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>First Job Toolkit</h1>
+<p>Support for youth entering the workplace</p>
+</header>
+
+<section>
+
+<div class="card">
+
+<h2>Portfolio Builder</h2>
+
+<input id="projectName" placeholder="Project name">
+
+<textarea id="projectDesc" placeholder="What did you do?"></textarea>
+
+<input id="projectSkills" placeholder="Skills used">
+
+<button onclick="addProject()">Add Project</button>
+
+<div id="portfolio"></div>
+
+</div>
+
+<div class="card">
+
+<h2>Mentor Space</h2>
+
+<input id="mentorName" placeholder="Your name">
+
+<textarea id="mentorQuestion" placeholder="Ask a question"></textarea>
+
+<button onclick="postQuestion()">Post</button>
+
+<div id="mentorFeed"></div>
+
+</div>
+
+</section>
+
+<div id="popup" class="modal">
+
+<div class="modal-box">
+
+<h3 id="popupTitle"></h3>
+
+<p id="popupText"></p>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+
+</div>
+
+<script>
+
+function addProject(){
+
+var name=document.getElementById("projectName").value
+var desc=document.getElementById("projectDesc").value
+var skills=document.getElementById("projectSkills").value
+
+var div=document.createElement("div")
+
+div.innerHTML="<b>"+name+"</b> <button onclick=\"openPopup('"+name+"','"+desc+" Skills: "+skills+"')\">View</button>"
+
+document.getElementById("portfolio").appendChild(div)
+
+}
+
+function postQuestion(){
+
+var name=document.getElementById("mentorName").value
+var q=document.getElementById("mentorQuestion").value
+
+var div=document.createElement("div")
+
+div.innerHTML="<b>"+name+"</b>: "+q
+
+document.getElementById("mentorFeed").appendChild(div)
+
+}
+
+function openPopup(title,text){
+
+document.getElementById("popupTitle").innerText=title
+document.getElementById("popupText").innerText=text
+document.getElementById("popup").style.display="block"
+
+}
+
+function closePopup(){
+
+document.getElementById("popup").style.display="none"
+
+}
+
+</script>
+
+</body>
+</html>
+```
 
